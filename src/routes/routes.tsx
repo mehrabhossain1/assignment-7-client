@@ -10,6 +10,10 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import AllDonationsPost from "../pages/dashboard/AllDonationsPost";
 import CreateDonationPost from "../pages/dashboard/CreateDonationPost";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
+import LeaderBoard from "../pages/leaderboard/LeaderBoard";
+import Community from "../pages/community/Community";
+import Volunteers from "../pages/volunteers/Volunteers";
+import CreateTestimonial from "../pages/dashboard/CreateTestimonial";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,18 @@ const router = createBrowserRouter([
       {
         path: "/donations/:id",
         element: <SingleDonationPage />,
+      },
+      {
+        path: "/leaderboard",
+        element: <LeaderBoard />,
+      },
+      {
+        path: "/community",
+        element: <Community />,
+      },
+      {
+        path: "/volunteer",
+        element: <Volunteers />,
       },
     ],
   },
@@ -49,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/create-donation",
         element: <CreateDonationPost />,
+      },
+      {
+        path: "/dashboard/create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },
