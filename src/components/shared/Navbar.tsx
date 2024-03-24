@@ -4,15 +4,21 @@ import { motion } from "framer-motion";
 import Container from "./Container";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
+import { toggleTheme } from "../../redux/features/theme/themeSlice";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const user = useAppSelector((state) => state.auth.user);
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
 
   const handleLogout = () => {
     dispatch(logout());
     alert("You have been logged out!");
+  };
+
+  const toggleMode = () => {
+    dispatch(toggleTheme());
   };
 
   return (
@@ -20,7 +26,9 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -200 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="shadow-lg rounded-md w-full sticky top-0 z-10 bg-white"
+      className={`shadow-lg rounded-md w-full sticky top-0 z-10 ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
     >
       <Container>
         <div className=" h-16 flex justify-between items-center">
@@ -39,6 +47,13 @@ const Navbar = () => {
                 Donations
               </Link>
             </motion.div>
+
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+              <Button onClick={toggleMode} className="btn">
+                {isDarkMode ? "Light Mode" : "Dark Mode"}
+              </Button>
+            </motion.div>
+
             {user ? (
               <>
                 <motion.div
