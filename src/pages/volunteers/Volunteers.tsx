@@ -14,12 +14,15 @@ const Volunteers = () => {
     try {
       setSubmitting(true);
       // Send POST request to create volunteer
-      await axios.post("http://localhost:5000/api/v1/volunteers", {
-        name,
-        email,
-        phone,
-        location,
-      });
+      await axios.post(
+        "https://l2-b2-frontend-path-assignment-6-server-starter-pack-topaz.vercel.app/api/v1/volunteers",
+        {
+          name,
+          email,
+          phone,
+          location,
+        }
+      );
       // Reset form fields
       setName("");
       setEmail("");
