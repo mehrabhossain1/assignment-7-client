@@ -9,7 +9,7 @@ const LeaderBoard = () => {
   const [data, setData] = useState<Donor[]>([]);
   useEffect(() => {
     fetch(
-      "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/leaderboard"
+      "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/leaderboard"
     )
       .then((res) => res.json())
       .then((data) => setData(data.leaderboard));

@@ -17,7 +17,7 @@ const AboutUs = () => {
   const fetchVolunteers = async () => {
     try {
       const response = await axios.get(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/volunteers"
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/volunteers"
       );
       setVolunteers(response.data.volunteers);
     } catch (error) {

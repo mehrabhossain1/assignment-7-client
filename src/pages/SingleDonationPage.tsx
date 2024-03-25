@@ -22,7 +22,7 @@ const SingleDonationPage = () => {
 
   useEffect(() => {
     fetch(
-      `https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations/${id}`
+      `https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/donations/${id}`
     )
       .then((res) => res.json())
       .then((data) => setDonation(data.donation));
@@ -32,7 +32,7 @@ const SingleDonationPage = () => {
   const handleDonate = async (values: any) => {
     try {
       const response = await fetch(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations",
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/donations",
         {
           method: "POST",
           headers: {

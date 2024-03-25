@@ -19,7 +19,7 @@ const Volunteers = () => {
       setSubmitting(true);
       // Send POST request to create volunteer
       await axios.post(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/volunteers",
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/volunteers",
         {
           name,
           email,

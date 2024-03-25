@@ -16,7 +16,7 @@ const Community = () => {
   const fetchComments = () => {
     axios
       .get(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/comments"
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/comments"
       )
       .then((response) => {
         setComments(response.data.comments);
@@ -30,7 +30,7 @@ const Community = () => {
     event.preventDefault();
     axios
       .post(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/comments",
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/comments",
         { text: newComment }
       )
       .then((response) => {

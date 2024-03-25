@@ -15,7 +15,7 @@ const CreateTestimonial = () => {
       setSubmitting(true);
       // Send POST request to create testimonial
       await axios.post(
-        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/testimonials",
+        "https://l2-b2-assignment-6-backend-mehrabhossain1.vercel.app/api/v1/testimonials",
         {
           postId,
           author,
