@@ -14,6 +14,7 @@ import LeaderBoard from "../pages/leaderboard/LeaderBoard";
 import Community from "../pages/community/Community";
 import Volunteers from "../pages/volunteers/Volunteers";
 import CreateTestimonial from "../pages/dashboard/CreateTestimonial";
+import AboutUs from "../pages/aboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/volunteer",
         element: <Volunteers />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
       },
     ],
   },
