@@ -2,6 +2,7 @@
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const CreateDonationPost = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const CreateDonationPost = () => {
         values
       );
       console.log(response.data);
-      alert("Donation Created");
+      toast.success("Donation Created");
       navigate("/dashboard/donations");
     } catch (error) {
       console.error("Error creating donation:", error);

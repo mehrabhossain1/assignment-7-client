@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const Volunteers = () => {
   const [name, setName] = useState("");
@@ -25,10 +26,12 @@ const Volunteers = () => {
       setEmail("");
       setPhone("");
       setLocation("");
-      alert("You have successfully signed up as a volunteer!");
+      toast.success("You have successfully signed up as a volunteer!");
     } catch (error) {
       console.error("Error signing up as a volunteer:", error);
-      alert("Failed to sign up as a volunteer. Please try again later.");
+      toast.success(
+        "Failed to sign up as a volunteer. Please try again later."
+      );
     } finally {
       setSubmitting(false);
     }

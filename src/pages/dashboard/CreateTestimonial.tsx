@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const CreateTestimonial = () => {
   const [postId, setPostId] = useState("");
@@ -22,10 +23,10 @@ const CreateTestimonial = () => {
       setPostId("");
       setAuthor("");
       setMessage("");
-      alert("Testimonial posted successfully!");
+      toast.success("Testimonial posted successfully!");
     } catch (error) {
       console.error("Error posting testimonial:", error);
-      alert("Failed to post testimonial. Please try again later.");
+      toast.success("Failed to post testimonial. Please try again later.");
     } finally {
       setSubmitting(false);
     }

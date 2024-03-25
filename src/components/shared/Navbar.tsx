@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 import { toggleTheme } from "../../redux/features/theme/themeSlice";
 import { MoonOutlined, SunOutlined } from "@ant-design/icons";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    alert("You have been logged out!");
+    toast.success("You have been logged out!");
   };
 
   const toggleMode = () => {
