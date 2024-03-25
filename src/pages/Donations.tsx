@@ -3,16 +3,27 @@ import { Card, Button } from "antd";
 import { Link } from "react-router-dom";
 import { useDonationsQuery } from "../redux/features/donations/donationsApi";
 import ScrollTop from "../components/shared/ScrollTop";
+import { useAppSelector } from "../redux/hooks";
 
 const Donations = () => {
   const { data } = useDonationsQuery("");
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
 
   return (
     <div>
       <ScrollTop />
-      <div className="grid px-2 md:grid-cols-2 lg:grid-cols-3 gap-4 my-20">
+      <div
+        className={`min-h-screen grid px-2 md:grid-cols-2 lg:grid-cols-3 gap-4 py-20 ${
+          isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+        }`}
+      >
         {data?.donations?.map((donation: any) => (
           <Card
+            className={`${
+              isDarkMode
+                ? "bg-gray-900 text-white hover:!border-2 border-green-500"
+                : "bg-white text-black"
+            }`}
             key={donation._id}
             hoverable
             cover={
@@ -30,7 +41,6 @@ const Donations = () => {
                 />
               </div>
             }
-            className="donation-card"
           >
             <div>
               <p className="font-bold my-2 text-xl">{donation.title}</p>

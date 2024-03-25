@@ -13,14 +13,11 @@ const CreateTestimonial = () => {
     try {
       setSubmitting(true);
       // Send POST request to create testimonial
-      await axios.post(
-        "https://l2-b2-frontend-path-assignment-6-server-starter-pack-topaz.vercel.app/api/v1/testimonials",
-        {
-          postId,
-          author,
-          message,
-        }
-      );
+      await axios.post("http://localhost:5000/api/v1/testimonials", {
+        postId,
+        author,
+        message,
+      });
       // Reset form fields
       setPostId("");
       setAuthor("");

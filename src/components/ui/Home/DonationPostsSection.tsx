@@ -3,13 +3,19 @@ import { motion } from "framer-motion";
 import { useDonationsQuery } from "../../../redux/features/donations/donationsApi";
 import DonationCard from "../DonationCard";
 import ViewAllButton from "../ViewAllButton";
+import { useAppSelector } from "../../../redux/hooks";
 
 const DonationPostsSection = () => {
   const { data } = useDonationsQuery("");
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
 
   return (
-    <div className="my-20 ">
-      <h2 className="text-3xl text-center font-extrabold text-gray-900 sm:text-4xl">
+    <div
+      className={`my-20 ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
+    >
+      <h2 className="text-3xl text-center font-extrabold sm:text-4xl">
         Our Donations
       </h2>
       <motion.div

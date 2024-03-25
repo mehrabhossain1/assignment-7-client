@@ -5,6 +5,7 @@ import Container from "./Container";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 import { toggleTheme } from "../../redux/features/theme/themeSlice";
+import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,9 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       className={`shadow-lg rounded-md w-full sticky top-0 z-10 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+        isDarkMode
+          ? "bg-gray-900 text-white border-b-2 border-green-500"
+          : "bg-white text-black"
       }`}
     >
       <Container>
@@ -46,12 +49,6 @@ const Navbar = () => {
               <Link className="font-semibold" to="/donations">
                 Donations
               </Link>
-            </motion.div>
-
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-              <Button onClick={toggleMode} className="btn">
-                {isDarkMode ? "Light Mode" : "Dark Mode"}
-              </Button>
             </motion.div>
 
             {user ? (
@@ -89,6 +86,12 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             )}
+
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+              <div onClick={toggleMode} className="cursor-pointer">
+                {isDarkMode ? <SunOutlined /> : <MoonOutlined />}
+              </div>
+            </motion.div>
           </div>
         </div>
       </Container>

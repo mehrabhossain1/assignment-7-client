@@ -16,9 +16,7 @@ const Community = () => {
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(
-        "https://l2-b2-frontend-path-assignment-6-server-starter-pack-topaz.vercel.app/api/v1/comments"
-      );
+      const response = await axios.get("http://localhost:5000/api/v1/comments");
       setComments(response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -28,12 +26,9 @@ const Community = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "https://l2-b2-frontend-path-assignment-6-server-starter-pack-topaz.vercel.app/api/v1/comments",
-        {
-          text: newComment,
-        }
-      );
+      await axios.post("http://localhost:5000/api/v1/comments", {
+        text: newComment,
+      });
       fetchComments(); // Refresh comments after adding a new one
       setNewComment("");
     } catch (error) {

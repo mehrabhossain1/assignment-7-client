@@ -1,5 +1,6 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import { useAppSelector } from "../../../redux/hooks";
 const images = [
   {
     original:
@@ -14,11 +15,18 @@ const images = [
       "https://plus.unsplash.com/premium_photo-1683141170766-017bf7a2ecb4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZG9uYXRpb258ZW58MHx8MHx8fDA%3D",
   },
 ];
+
 const GallerySection = () => {
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+
   return (
-    <div className="pt-5">
+    <div
+      className={`pt-5 ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
+    >
       <div className="my-20">
-        <h2 className="mt-10 text-3xl text-center font-extrabold text-gray-900 sm:text-4xl">
+        <h2 className="mt-10 text-3xl text-center font-extrabold sm:text-4xl">
           Gallery
         </h2>
       </div>
