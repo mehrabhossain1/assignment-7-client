@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useAppSelector } from "../redux/hooks";
 
-const laptop = {
+const imageAnimation = {
   initial: { y: 0, rotate: 0, scale: 5 },
   animate: {
     y: 20,
@@ -36,7 +36,11 @@ const AboutUs = () => {
         </div>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="max-w-lg mx-auto rounded-lg overflow-hidden">
-            <motion.div variants={laptop} initial="initial" animate="animate">
+            <motion.div
+              variants={imageAnimation}
+              initial="initial"
+              animate="animate"
+            >
               <img
                 className="w-full"
                 src="https://www.onenationuk.org/wp-content/uploads/2023/10/gazaemergencyhm.jpg"
