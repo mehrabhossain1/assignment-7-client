@@ -21,7 +21,9 @@ const SingleDonationPage = () => {
   const [showDonateModal, setShowDonateModal] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/donations/${id}`)
+    fetch(
+      `https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setDonation(data.donation));
   }, [id]);
@@ -29,13 +31,16 @@ const SingleDonationPage = () => {
 
   const handleDonate = async (values: any) => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/donations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to submit donation");

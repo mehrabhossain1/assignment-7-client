@@ -8,7 +8,9 @@ interface Donor {
 const LeaderBoard = () => {
   const [data, setData] = useState<Donor[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/leaderboard")
+    fetch(
+      "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/leaderboard"
+    )
       .then((res) => res.json())
       .then((data) => setData(data.leaderboard));
   }, []);

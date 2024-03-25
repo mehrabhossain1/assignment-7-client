@@ -9,7 +9,7 @@ const CreateDonationPost = () => {
   const onFinish = async (values: any) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/donations",
+        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations",
         values
       );
       console.log(response.data);

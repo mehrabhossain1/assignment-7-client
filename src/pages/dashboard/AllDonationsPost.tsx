@@ -53,7 +53,7 @@ const AllDonationsPost: React.FC = () => {
     try {
       console.log("Edited values:", values);
       const response = await axios.put<Donation>(
-        `http://localhost:5000/api/v1/donations/${selectedRecord?._id}`,
+        `https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations/${selectedRecord?._id}`,
         values
       );
       dispatch(updateDonation(response.data)); // Assuming the updated donation is returned from the server
@@ -69,7 +69,7 @@ const AllDonationsPost: React.FC = () => {
       console.log("Deleted donation:", selectedRecord);
       if (selectedRecord) {
         await axios.delete(
-          `http://localhost:5000/api/v1/donations/${selectedRecord._id}`
+          `https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/donations/${selectedRecord._id}`
         );
         dispatch(deleteDonation(selectedRecord)); // Send the entire record to be deleted
         setDeleteModalVisible(false);

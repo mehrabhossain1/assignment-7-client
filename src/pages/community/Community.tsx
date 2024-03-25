@@ -15,7 +15,9 @@ const Community = () => {
 
   const fetchComments = () => {
     axios
-      .get("http://localhost:5000/api/v1/comments")
+      .get(
+        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/comments"
+      )
       .then((response) => {
         setComments(response.data.comments);
       })
@@ -27,7 +29,10 @@ const Community = () => {
   const handleCommentSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/v1/comments", { text: newComment })
+      .post(
+        "https://l2-b2-assignment-6-backend-mehrabhossain1-3kr1dkaln.vercel.app/api/v1/comments",
+        { text: newComment }
+      )
       .then((response) => {
         console.log("Response:", response.data);
         fetchComments(); // Fetch comments again to update the list
