@@ -1,7 +1,10 @@
 import { Carousel } from "antd";
 import { CSSProperties } from "react";
+import { useAppSelector } from "../../../redux/hooks";
 
 const TopDonorTestimonials = () => {
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+
   const testimonials = [
     {
       id: 1,
@@ -54,8 +57,13 @@ const TopDonorTestimonials = () => {
   ];
 
   return (
-    <div style={styles.container} className="bg-gray-100">
-      <h2 className="mt-10 text-3xl text-center font-extrabold text-gray-900 sm:text-4xl">
+    <div
+      style={styles.container}
+      className={`${
+        isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
+      }`}
+    >
+      <h2 className="mt-10 text-3xl text-center font-extrabold sm:text-4xl">
         Our Top Donors
       </h2>
       <div style={styles.carouselContainer}>
@@ -63,12 +71,29 @@ const TopDonorTestimonials = () => {
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} style={styles.testimonial}>
               <img
+                className="rounded-full mx-auto"
                 src={testimonial.imageUrl}
                 alt={testimonial.name}
                 style={styles.userImage}
               />
-              <p>{testimonial.message}</p>
-              <p>- {testimonial.name}</p>
+              <p
+                className={`text-xl italic mt-4 ${
+                  isDarkMode
+                    ? "bg-gray-800 text-white"
+                    : "bg-gray-100 text-black"
+                }`}
+              >
+                {testimonial.message}
+              </p>
+              <p
+                className={`font-bold text-xl  ${
+                  isDarkMode
+                    ? "bg-gray-800 text-white"
+                    : "bg-gray-100 text-black"
+                }`}
+              >
+                - {testimonial.name}
+              </p>
             </div>
           ))}
         </Carousel>
@@ -98,7 +123,6 @@ const styles: {
   },
   testimonial: {
     padding: "20px",
-    background: "#f0f0f0",
     borderRadius: "8px",
     textAlign: "center",
   },

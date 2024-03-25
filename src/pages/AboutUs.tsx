@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useAppSelector } from "../redux/hooks";
 
 const laptop = {
   initial: { y: 0, rotate: 0, scale: 5 },
@@ -18,14 +19,18 @@ const laptop = {
 };
 
 const AboutUs = () => {
+  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+
   return (
-    <div className="bg-gray-100 py-16 my-20">
+    <div
+      className={` py-16 my-20 ${
+        isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            About Us
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <h2 className="text-3xl font-extrabold sm:text-4xl">About Us</h2>
+          <p className="mt-4 text-lg ">
             Learn more about our Disaster Relief Donation Platform.
           </p>
         </div>
@@ -39,7 +44,7 @@ const AboutUs = () => {
               />
             </motion.div>
           </div>
-          <div className="mt-6 prose prose-lg text-gray-600 flex flex-col justify-center items-center">
+          <div className="mt-6 prose prose-lg flex flex-col justify-center items-center">
             <p className="font-bold italic my-4 text-center">
               “Whoever saved a life, it would be as if they saved the life of
               all mankind.” – (Qur’an 5:32)
