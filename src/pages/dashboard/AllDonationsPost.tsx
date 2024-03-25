@@ -21,7 +21,7 @@ interface Donation {
 
 const AllDonationsPost: React.FC = () => {
   const dispatch = useCustomDispatch();
-  const { data, isLoading, isError } = useDonationsQuery("");
+  const { data, isLoading, isError, refetch } = useDonationsQuery("");
   const [editModalVisible, setEditModalVisible] = useState<boolean>(false);
   const [deleteModalVisible, setDeleteModalVisible] = useState<boolean>(false);
   const [selectedRecord, setSelectedRecord] = useState<Donation | null>(null);
@@ -31,7 +31,8 @@ const AllDonationsPost: React.FC = () => {
     if (!isLoading && !isError) {
       dispatch(setDonations(data.donations));
     }
-  }, [data, isLoading, isError, dispatch]);
+    refetch();
+  }, [data, isLoading, isError, dispatch, refetch]);
 
   const handleEdit = (record: Donation) => {
     setSelectedRecord(record);
@@ -57,6 +58,7 @@ const AllDonationsPost: React.FC = () => {
       );
       dispatch(updateDonation(response.data)); // Assuming the updated donation is returned from the server
       setEditModalVisible(false);
+      refetch();
     } catch (error) {
       console.error("Error updating donation:", error);
     }
@@ -71,6 +73,7 @@ const AllDonationsPost: React.FC = () => {
         );
         dispatch(deleteDonation(selectedRecord)); // Send the entire record to be deleted
         setDeleteModalVisible(false);
+        refetch();
       }
     } catch (error) {
       console.error("Error deleting donation:", error);

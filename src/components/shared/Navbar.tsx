@@ -56,6 +56,11 @@ const Navbar = () => {
                 Leaderboard
               </Link>
             </motion.div>
+            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+              <Link className="font-semibold" to="/community">
+                Community
+              </Link>
+            </motion.div>
 
             {user ? (
               <>

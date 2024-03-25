@@ -4,14 +4,21 @@ import { Link } from "react-router-dom";
 import { useDonationsQuery } from "../redux/features/donations/donationsApi";
 import ScrollTop from "../components/shared/ScrollTop";
 import { useAppSelector } from "../redux/hooks";
+import { useEffect } from "react";
 
 const Donations = () => {
-  const { data } = useDonationsQuery("");
+  const { data, isLoading, isError, refetch } = useDonationsQuery("");
   const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   return (
     <div>
       <ScrollTop />
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>Error fetching data</div>}
       <div
         className={`min-h-screen grid px-2 md:grid-cols-2 lg:grid-cols-3 gap-4 py-20 ${
           isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
